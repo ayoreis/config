@@ -1,36 +1,31 @@
-# configuration
-A collection of tools for handling configuration in Deno and the browser — the modern runtimes.
+# Configuration
 
-## `tryToFindConfig`
-Tries to find the Deno configuration file from a list of commonly used names. On failure it returns `undefined`.
+[Source](https://github.com/ayoreis/configuration) • [Registry](https://deno.land/x/configuration) • [API](https://deno.land/x/configuration/mod.ts)
 
-```ts
-import { tryToFindConfig } from 'https://deno.land/x/configuration@v0.1.0/mod.ts'
+A collection of tools for handling Deno's configuration.
 
-console.log(await tryToFindConfig())
+<br/>
+
+> [!NOTE] This matches Deno Deploy, for example the configuration file needs to be called `deno.json` os `deno.jsonc`.
+
+<br/>
+
+```typescript
+import {
+	getDenoConfiguration,
+	getImportMap,
+} from 'https://deno.land/x/configuration';
+
+console.log(await getDenoConfiguration());
+console.log(await getImportMap());
 ```
 
-## `tryToFindImportMap`
-Tries to find the import map. In Deno using the `importMap` field from `tryToFindConfig` and in the browser using `document.querySelector('script[type="importmap"]')`. On failure it returns `undefined`.
+```typescript
+import type {
+	DenoConfiguration,
+	ImportMap,
+} from 'https://deno.land/x/configuration';
 
-```ts
-import { tryToFindImportMap } from 'https://deno.land/x/configuration@v0.1.0/mod.ts'
-
-console.log(await tryToFindImportMap())
-```
-## `DenoConfigurationFile`
-A TypeScript interface representation of a Deno configuration file. As specified at https://deno.land/x/deno@v1.25.0/cli/schemas/config-file.v1.json?source=
-
-```ts
-import { DenoConfigurationFile } from 'https://deno.land/x/configuration@v0.1.0/config-interface.ts'
-
-const config = ... as DenoConfigurationFile
-```
-## `ImportMap`
-A TypeScript interface representation of an [import map](https://github.com/WICG/import-maps).
-
-```ts
-import type { ImportMap } from 'https://deno.land/x/configuration@v0.1.0/importmap-interface.ts'
-
-const importMap = ... as ImportMap
+const denoConfiguration: DenoConfiguration = {};
+const importMap: ImportMap = {};
 ```
