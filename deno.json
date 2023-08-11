@@ -1,0 +1,9 @@
+{
+	"fmt": {
+		"proseWrap": "never",
+		"singleQuote": true,
+		"useTabs": true
+	},
+
+	"lock": false
+}
