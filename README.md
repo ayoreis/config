@@ -7,7 +7,7 @@ A collection of tools for handling Deno's configuration.
 <br/>
 
 > [!NOTE]
-> This matches Deno Deploy, for example the configuration file needs to be called `deno.json` os `deno.jsonc`.
+> This matches the behaviour in Deno Deploy, for example the configuration file needs to be called either `deno.json` or `deno.jsonc`.
 
 <br/>
 
